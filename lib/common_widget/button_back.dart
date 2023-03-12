@@ -16,8 +16,6 @@ class ButtonBack extends StatelessWidget {
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black)),
         child: const Icon(Icons.arrow_back_ios_new),
       ),
-    ) ;
+    );
   }
 }
-
-

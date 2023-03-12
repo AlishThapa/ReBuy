@@ -1,8 +1,10 @@
+import 'package:after_exam/module/navigation_bar/navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateOrLoginButton extends StatelessWidget {
-  const CreateOrLoginButton({super.key});
+  CreateOrLoginButton({required this.buttonName});
+  String buttonName;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class CreateOrLoginButton extends StatelessWidget {
         ),
       ),
       child: Text(
-        'Create account',
+        buttonName,
         style: GoogleFonts.dosis(
           fontSize: 24,
           fontWeight: FontWeight.w700,

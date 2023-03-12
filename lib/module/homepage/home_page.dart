@@ -16,7 +16,7 @@ class Homepage extends StatelessWidget {
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 30),
+          padding: const EdgeInsets.only(right: 18,left: 18,top: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [

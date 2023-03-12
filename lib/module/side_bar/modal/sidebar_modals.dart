@@ -4,7 +4,7 @@ class Options {
   Icon icon;
   String text;
   String subtext;
-  
+
   Options({required this.icon, required this.text, required this.subtext});
 }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../my_account/my_account.dart';
+import '../../my_account_page/my_account.dart';
 import '../modal/sidebar_modals.dart';
 
 class SideBarOptions extends StatelessWidget {
@@ -8,9 +8,9 @@ class SideBarOptions extends StatelessWidget {
 
   List<Widget> listOption = [
     const MyAccountPage(),
-    Container(child: Center(child: Text('index 1'))),
-    Container(child: Center(child: Text('index 2'))),
-    Container(child: Center(child: Text('index 3'))),
+    const Center(child: Text('index 1')),
+    const Center(child: Text('index 2')),
+    const Center(child: Text('index 3')),
   ];
 
   @override

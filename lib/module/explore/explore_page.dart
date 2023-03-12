@@ -15,7 +15,7 @@ class ExplorePage extends StatelessWidget {
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Container(
-          padding: const EdgeInsets.only(left: 18, top: 30, right: 18),
+          padding: const EdgeInsets.only(left: 18, top: 30, right: 18, bottom: 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -38,7 +38,7 @@ class ExplorePage extends StatelessWidget {
               const SizedBox(height: 32),
               const MySearchBar(),
               const SizedBox(height: 17),
-              SingleChildScrollView( 
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

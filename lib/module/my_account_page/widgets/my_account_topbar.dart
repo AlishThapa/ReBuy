@@ -54,4 +54,3 @@ class MyAccountTopBar extends StatelessWidget {
     );
   }
 }
-

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../auth/page/login_page.dart';
 import '../navigation_bar/navigation_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,10 +17,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Start the timer when the widget is created
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 3), () {
       // Navigate to the next page
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (BuildContext context) => NavBar()),
+        MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
       );
     });
   }

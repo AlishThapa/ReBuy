@@ -40,7 +40,7 @@ class _MySearchBarState extends State<MySearchBar> {
               // Perform search with searchController.text
             },
             icon: const Icon(Icons.search),
-            color:const Color(0xff999999),
+            color: const Color(0xff999999),
           ),
         ],
       ),

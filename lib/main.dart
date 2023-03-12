@@ -1,7 +1,8 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'counter_Cubit.dart';
-import 'module/bloc/bloc_favourite_icon.dart';
+import 'module/homepage/bloc/new_arrival_bloc.dart';
+import 'module/homepage/bloc/recently_view_bloc.dart';
 import 'module/navigation_bar/bloc_module/bloc_module.dart';
 import 'module/splash_screen/splash_screen.dart';
 
@@ -16,14 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => BottomNavCubit()),
+        BlocProvider(create: (context) => RecentlyViewedBloc()),
         BlocProvider(
-          create: (context) => Counte(),
-        ),
-        BlocProvider(
-          create: (context) => BottomNavCubit(),
-        ),
-        BlocProvider(
-          create: (context) => Favourite(),
+          create: (context) => NewArrivalBloc(),
         )
       ],
       child: MaterialApp(

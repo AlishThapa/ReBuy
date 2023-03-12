@@ -14,7 +14,6 @@ class ListOfMessages extends StatefulWidget {
 }
 
 class _ListOfMessagesState extends State<ListOfMessages> {
-
   @override
   Widget build(BuildContext context) {
     return Expanded(

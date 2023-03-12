@@ -1,6 +1,7 @@
-import 'package:after_exam/module/my_account/modals/account_formfield_modals.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../modals/account_formfield_modals.dart';
 
 class AccountDetail extends StatefulWidget {
   const AccountDetail({Key? key}) : super(key: key);
@@ -12,9 +13,16 @@ class AccountDetail extends StatefulWidget {
 class _AccountDetailState extends State<AccountDetail> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController();
+    List<TextEditingController> controllers = [
+      TextEditingController(),
+      TextEditingController(),
+      TextEditingController(),
+      TextEditingController(),
+    ];
+
     return SafeArea(
       child: ListView.separated(
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         separatorBuilder: (context, index) => const SizedBox(height: 21),
         itemCount: accountdetails.length,
@@ -34,13 +42,15 @@ class _AccountDetailState extends State<AccountDetail> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color:const Color(0xffEAEAEA),
+                  color: const Color(0xffEAEAEA),
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Expanded(
                       child: TextField(
-                        controller: controller,
+                        maxLines: index == 3 ? 4 : null,
+                        controller: controllers[index],
                         style: GoogleFonts.firaSans(
                           fontSize: 18,
                           fontWeight: FontWeight.w300,
@@ -59,8 +69,13 @@ class _AccountDetailState extends State<AccountDetail> {
                       ),
                     ),
                     IconButton(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onPressed: () {},
-                      icon: const Icon(Icons.edit,color: Color(0xff898989),),
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Color(0xff898989),
+                      ),
                       // color: const Color(0xff656565),
                     ),
                   ],

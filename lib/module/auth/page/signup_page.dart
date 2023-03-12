@@ -69,7 +69,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 18),
                 Textfield(controller: password, name: 'Password'),
                 const SizedBox(height: 18),
-                const CreateOrLoginButton(),
+                 CreateOrLoginButton(
+                  buttonName: 'Sign up',
+                ),
                 const SizedBox(height: 18),
                 const LoginText(),
                 const SizedBox(height: 50)

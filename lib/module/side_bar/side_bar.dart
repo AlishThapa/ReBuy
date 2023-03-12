@@ -21,9 +21,8 @@ class SideBarPage extends StatelessWidget {
               const SideBarTopBar(),
               Expanded(
                   child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
                 child: Column(
-                  children:  [
+                  children: [
                     const SizedBox(height: 74),
                     SideBarOptions(),
                     const SizedBox(height: 46),

@@ -1,10 +1,8 @@
-import 'package:after_exam/module/bloc/bloc_favourite_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../bloc/bloc_event/favourite_event.dart';
-import '../modals/recent_modals.dart';
+import '../bloc/recently_view_bloc.dart';
 
 class RecentlyViewedContainer extends StatefulWidget {
   const RecentlyViewedContainer({super.key});
@@ -16,7 +14,7 @@ class RecentlyViewedContainer extends StatefulWidget {
 class _RecentlyViewedContainerState extends State<RecentlyViewedContainer> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(
+    return BlocBuilder<RecentlyViewedBloc, RecentState>(
       builder: (context, state) {
         return SizedBox(
           height: 246,
@@ -26,9 +24,9 @@ class _RecentlyViewedContainerState extends State<RecentlyViewedContainer> {
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, index) => const SizedBox(width: 20),
-            itemCount: recentModals.length,
+            itemCount: state.data.length,
             itemBuilder: (context, index) {
-              final product = recentModals[index];
+              final product = state.data[index];
               return Container(
                 height: 246,
                 width: 250,
@@ -53,14 +51,13 @@ class _RecentlyViewedContainerState extends State<RecentlyViewedContainer> {
                           bottom: 15,
                           right: 16,
                           child: GestureDetector(
-                            onTap: () =>
-                            context.read<Favourite>().add(OnPresseD()),
+                            onTap: () => context.read<RecentlyViewedBloc>().onLiked(index, true),
                             child: CircleAvatar(
-                              radius:16,
-                              backgroundColor: state != null ? const Color(0xffFFFFFF).withOpacity(0.6) : const Color(0xffFF5858),
-                              child: const Icon(
+                              radius: 16,
+                              backgroundColor: state.data[index].isLoved ? const Color(0xffFF5858) : Colors.white.withOpacity(0.7),
+                              child: Icon(
                                 Icons.favorite_outline,
-                                color: Color(0xffFF5858),
+                                color: state.data[index].isLoved ? Colors.white : const Color(0xffFF5858),
                               ),
                             ),
                           ),
@@ -85,15 +82,16 @@ class _RecentlyViewedContainerState extends State<RecentlyViewedContainer> {
                             ),
                           ),
                           Expanded(
-                              child: Text(
-                                '₹ ${product.price}',
-                                style: GoogleFonts.firaSans(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w700,
-                                  color: const Color(0xff3C3C3C),
-                                ),
-                                textAlign: TextAlign.end,
-                              )),
+                            child: Text(
+                              '₹ ${product.price}',
+                              style: GoogleFonts.firaSans(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: const Color(0xff3C3C3C),
+                              ),
+                              textAlign: TextAlign.end,
+                            ),
+                          ),
                         ],
                       ),
                     ),
